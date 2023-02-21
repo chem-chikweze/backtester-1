@@ -1,6 +1,5 @@
 import queue
 import time
-import config
 from datetime import datetime
 from event import MarketEvent, SignalEvent, OrderEvent, FillEvent
 from data import QuandlDataHandler, HistoricCSVDataHandler, DataSource

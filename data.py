@@ -103,12 +103,7 @@ class HistoricCSVDataHandler(DataHandler):
         tmp = pd.read_csv(os.path.join(self.csv_dir, symbol + '.csv'), header=0, index_col=0, parse_dates=True).iloc[::-1]
         self.symbol_data[symbol] = pd.DataFrame(tmp['Closing price'])
         self.symbol_data[symbol].columns = ['Close']
-        # self.symbol_data[symbol]['Open'] = tmp['Closing price']
-        # self.symbol_data[symbol]['High'] = tmp['High price']
-        # self.symbol_data[symbol]['Low'] = tmp['Low price']
         self.symbol_data[symbol]['Close'] = tmp['Closing price']
-        # self.symbol_data[symbol]['Adj Close'] = tmp['Closing price']
-        # self.symbol_data[symbol]['Volume'] = tmp['Total volume']
         self.symbol_data[symbol] = self.symbol_data[symbol][self.symbol_data[symbol]['Close'] > 0.0]
 
 class QuandlDataHandler(DataHandler):
